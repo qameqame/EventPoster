@@ -6,6 +6,8 @@
 //  Copyright © 2015年 Hiroki Kameyama. All rights reserved.
 //
 
+//test
+
 import UIKit
 
 class EventPosterViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
