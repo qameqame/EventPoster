@@ -12,9 +12,13 @@ class EventItemViewController: UIViewController {
 
     @IBOutlet weak var eventField: UITextField!
     
+    var event: Event? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        if let eventPost = event{
+            eventField.text = eventPost.eventItem
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,12 +32,25 @@ class EventItemViewController: UIViewController {
     
     
     @IBAction func save(sender: UIBarButtonItem) {
-        
-        let newEvent: Event = Event.MR_createEntity() as! Event
-        newEvent.eventItem = eventField.text!
-        newEvent.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+        if event != nil{
+            editEvent()
+        }else{
+          createEvent()
+        }
         
         navigationController!.popViewControllerAnimated(true)
     }
+    
+    func createEvent(){
+        let newEvent:Event = Event.MR_createEntity() as! Event
+        newEvent.eventItem = eventField.text
+        newEvent.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+    }
+    
+    func editEvent(){
+        event?.eventItem = eventField.text
+        event?.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+    }
+    
     
 }

@@ -44,5 +44,24 @@ class EventPosterViewController: UIViewController,UITableViewDelegate,UITableVie
         return cell
     }
 
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            eventEntities.removeAtIndex(indexPath.row).MR_deleteEntity()
+            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+            tableView.reloadData()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "edit"{
+            let epController = segue.destinationViewController as! EventItemViewController
+            let event = eventEntities[tableView.indexPathForSelectedRow!.row]
+            
+            epController.event = event
+            
+        }
+    }
+    
+    
 }
 

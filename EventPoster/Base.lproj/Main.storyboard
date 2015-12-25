@@ -28,6 +28,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="uNU-Fp-jFS" kind="show" identifier="edit" id="612-nR-3yd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -125,4 +128,7 @@
             <point key="canvasLocation" x="274" y="429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="612-nR-3yd"/>
+    </inferredMetricsTieBreakers>
 </document>
