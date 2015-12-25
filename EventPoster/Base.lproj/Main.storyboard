@@ -82,6 +82,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BlB-TE-eOe">
+                                <rect key="frame" x="29" y="194" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.70227082900000004" green="1" blue="0.9596571894" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -103,6 +109,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="eventField" destination="207-w5-yDF" id="kMl-de-ewp"/>
+                        <outlet property="eventTextView" destination="BlB-TE-eOe" id="sB4-qE-IU2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ehm-BN-T8R" userLabel="First Responder" sceneMemberID="firstResponder"/>

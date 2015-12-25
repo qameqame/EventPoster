@@ -15,5 +15,6 @@ import CoreData
 extension Event {
 
     @NSManaged var eventItem: String?
+    @NSManaged var eventDesc: String?
 
 }

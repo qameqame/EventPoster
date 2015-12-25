@@ -11,6 +11,7 @@ import UIKit
 class EventItemViewController: UIViewController {
 
     @IBOutlet weak var eventField: UITextField!
+    @IBOutlet weak var eventTextView: UITextView!
     
     var event: Event? = nil
     
@@ -18,6 +19,7 @@ class EventItemViewController: UIViewController {
         super.viewDidLoad()
         if let eventPost = event{
             eventField.text = eventPost.eventItem
+            eventTextView.text = eventPost.eventDesc
         }
     }
     
@@ -44,11 +46,13 @@ class EventItemViewController: UIViewController {
     func createEvent(){
         let newEvent:Event = Event.MR_createEntity() as! Event
         newEvent.eventItem = eventField.text
+        newEvent.eventDesc = eventTextView.text
         newEvent.managedObjectContext!.MR_saveToPersistentStoreAndWait()
     }
     
     func editEvent(){
         event?.eventItem = eventField.text
+        event?.eventDesc = eventTextView.text
         event?.managedObjectContext!.MR_saveToPersistentStoreAndWait()
     }
     
